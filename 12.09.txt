@@ -1,0 +1,255 @@
+0. SDK là gì???
+- SDK: Software development kit: bộ đồ chơi và công cụ dành cho dân dev (development) dung  làm app
+* Sdk SẼ BAO GỒM BÊN TRONG NÓ
+ - BỘ THƯ VIỆN LẬP TRÌNH / LIBRARY / DEPENDENCY (TÊN GỌI MỚI)
+   CHẲNG QUA LÀ CÁC CLASS CHỨA CÁC HÀM ĐỂ GIÚP DÂN DEV NEW NÓ, GỌI NÓ ĐỂ LÀM VIỆC GÌ ĐÓ. VÍ DỤ JDBC.JAR GIÚP KẾT NÓI VÀ THAO TÁC VỚI SQLSERVER XUẤT HIỆN DƯỚI DẠNG: .DLL , .EXE, .JAR
+
+ -Các công cụ nho nhỏ (tool) chẳng qua là các file  .EXE để giúp dân dev gọi nó để giúp cho các công việc
+   -Biên dịch SOURCE CODE từ .JAVA, .C, .CPP, .PY, .CS thành "nhị phân" mày có thể hiểu nhị phân này mà thưc thi
+    Tool này gọi là trình biên dịch - Compiler
+- Đóng gói app thành setup.exe .DLL .WAR . JAR
+(JAVAC.EXE, DOTNET.EXE)
+- Các công cụ khác
+- Runtime, layer trung gian giữ các app mình và hệ diều hành
+
+                              	 source code -> người hiểu(java, c, cs)
+					|
+
+					|	COMPILE/ COMPILER
+
+					|
+
+				"Nhị Phân" APP (.EXE, .DLL, .JAR, .WAR, .APK)
+
+					|
+
+					|	RUN APP
+
+					|
+
+				Run time (JRE - JAVA RUNTIME ENVIROMENT, 3 RUNTIME, .NET)
+
+					|
+
+					|	PLATFROM INDEPENDENT, (.NET, C#) CROSS PLATFROM
+
+					|
+
+				OS - OPERATING SYSTEM
+
+
+
+
+ Tầng Runtime sẽ giúp app chạy được trên nhiều hành, 1 app tương Thich nhiều os, đa nền!!!
+
+ -sdk còn là bộ thư viện lập trình mà 1 hãng phần cứng nào đó cung cấp cho để họ lập trình tương tác với thiết bị đó; trong 1 số tình huống còn gọi là DRIVER
+
+I. Lịch sử .net
+1. NET là 1 công nghệ, thuật ngữ của Microsoft, bộ đồ chơi CÔNG CỤ, RA ĐỜI KHOẢNG 2001, DÙNG CHO CÁC DÂN DEV ĐỂ LÀM APP CHẠY ĐA NỀN ( THAM VỌNG BAN ĐẦU)
+
+2. .NET CÒN LÀ TẬP HỢP CÁC NGÔN NGỮ LẬP TRÌNH ĐI KÈM BỘ CÔNG CỤ .NET
+KHI CHƠI .NET, BẠN CHỚI VỚI 4 NGÔN NGỮ LẬP TRÌNH KHÁC NHAU NHƯNG LIÊN THÔNG NHAU
+- VISUAL C++ (C OOP): SIÊU HẠNG TRONG VIẾT APP CAN THIỆP HỆ THỐNG
+- C SHARP - C#
+- VISUAL BASIC .NET (VBNET, VB.NET)
+- F SHARP - F#
+
+3. ĐỂ LẬP TRÌNH .NET (C#, VB.NET, VC++, F#) TA CẦN SDK
+- KHỞI ĐẦU, SDK TÊN LÀ .NET FRAWEWORK VÀ CHỈ HỘ TRỢ CHO WINDOWS
+			. NET FRAMEWORK: 1.X, 2.X, 3.X, 4.X, 4.8.XXXXXX!!!!
+  EOSCLIENT, PEA - > ĐC VIẾT BẰNG C# TRÊN . NET FRAMWORK
+- ĐOẠN SAU, .NET SDK HỘ TRỠ CHO ĐA NỀN, CHO LINUX, MACOS
+			GỌI TÊN LÀ .NET CORE, DUY TRÌ SONG SONG VỚI .NET FRAMWORK
+						1.X, 2.X, 3.X!!!!!!!!!
+
+- ĐOẠN GẦN ĐÂY: GOM 2 THẰNG .NET FRAMWORK, .NET CORE THÀNH 1 PHIÊN BẢN CHUNG, 1 TÊN
+GỌI CHUNG 		.NET LÀ ĐỦ
+ 			5.X, 6.X, 7.X, 8.X, 9.X, 10.X (PILOT, DRAFT)
+					*
+			VERSION LẺ: VERSION SUPPORT NGẮN HẠN
+			VERSION CHẲN: LTS - LONG TERM SUPPORT
+
+II. IDE (INTEGRATED DEVELOPMENT ENVIRONMENT)		VS. CODE EDITOR
+     FULL TÍNH NĂNG GIÚP DÂN DEV VIẾT CODE		-  GỌN NHẸ HƠN BÊN IDE,		
+     DEBUG, BIÊN DỊCH, ĐÓNG GÓI, RUN APP	  	   KO CÓ SẴN MÕI THỨ, MÀ PHẢI CÀI
+     TRIỆU GỌI SDK HẬU TRƯỜNG LÀM GIÚP			   THÊM QUA PLUGIN, EXTENSION
+     NHIỀU VIỆC						   CẦN ĐÂU CÀI THÊM ĐÓ!!!!!
+     - LÀ TOOL RỜI, RIÊNG VỚI SDK NHƯNG 
+     DÙNG SDK THEO CÁCH TIỆN LỢI HỖ TRỢ DÂN 
+     DEV LÀM APP
+
+     NETBEANS, ECLIPSE, INTELLIJ			VISUAL STUDIO CODE, BRACKETS,
+     RIDER, VISUAL STUDIO				SUBLINE, ATOM, NOTEPAD++
+
+		8GB						1GB
+
+
+III. QUY TẮC VIẾT CODE - QUY TẮC ĐẶT TÊN - CODING CONVENTION
+0. THƯ MỤC CHỨA SOURCE CODE
+- TUYỆT ĐỐI KO ĐC LƯU SOURCE CODE Ở THƯ MỤC CÓ DẤU TIẾNG VIỆT, DẤU CÁCH
+  DO CÁI COMPLIER NÓ KH THÂN THIỆN VỚI VIỆC ĐI TÌM FILE SOURCE CODE Ở CÁC FOLDER CÓ CHỮ UNICODE
+  - D:\LẬP TRÌNH\C#  -> SAI QUY TẮC, SẼ BỊ LỖI RẤT KHÓ TÌM NGUYÊN NHÂN KHI BUILD CODE
+    D:\SOURCE - CODE\CSHARP   -> MLEM
+
+- ĐỀ XUẤT
+  - D:\SOURCE-CODE\PRN212
+			Session01-Hello
+			Session02-Language
+			Session03-OOP
+			....
+
+- TUYỆT ĐỐI KO ĐC LƯU SOURCE CODE Ở NHỮNG MỤC LOCAL LIÊN QUAN ĐẾN DRIVE, ĐỒNG BỘ LÊN CLOUD!!!! ZALO DOWNLOADS, GOOGLE DRIVE, ONE DRIVE, DROP BOX
+
+1. QUY TẮC ĐĂT TÊN CHO SOLUTION, PROJECT, VÀ NAMESPACE
+
+2. QUY TẮC ĐẶT TÊN CHO CLASS
+
+3. QUY TẮC ĐẶT TÊN CHO FILED (BIẾN "TOÀN CỤC" TRONG CLASS) VÀ BIẾN LOCAL
+
+4. QUY TẮC ĐẶT TÊN CHO HÀM (METHOD)
+
+5...
+
+1. QUY TẮC ĐẶT TÊN SOLUTION, PROJECT, NAMESPACE
+* SOLUTION LÀ CÁI APP BỤ MÀ BẠN MUỐN LÀM; NÓ CHỨA BÊN TRONG NHIỀU PROJECT, MÔI PROJECT ỨNG VỚI 1 NAMESPACE GỐC - PACKAGE CHỨ CODE, MỖI PROJECT CHỨ NHIỀU CLASS BÊN TRONG
+- MỖI SOLUTION ỨNG VỚI 1 THƯ MỤC GỐC, CÁC PROJECT LÀ THƯ MỤC CON BÊN TRONG THƯ MỤC SOLUTION
+- QUY TẮC ĐẶT TÊN: DANH TỪ, CHỮ HOA TỪNG ĐẦU TỪ - PASCAL CASE
+NOTATION, DẤU CHẤM ĐỂ PHÂN CÁCH CÁC HẠNG MỤC TRONG TÊN SOLUTION
+  format: TÊN CÔNG TY LÀM APP.TenSolution.TÊN DỰ ÁN BỰ.TÊN CHỨC NĂNG.
+  Ví dụ : Microsoft.Dotnet
+      	  Microsoft.EntityFramework			.Core.SqlServer,
+
+      	  GiaoLang.Health
+
+-> ĐỀ THI PE: YÊU CẦU ĐẶT TÊN PROJECT VÀ SOLUTION KO THEO CHUẨN Ở TRÊN, TUI ĐÃ GÓP Ý RỒI, NẾU THẤY ĐỀ THI YÊU CẦU ĐẶT TÊN KO GIỐNG NHƯ Ở ĐÂY, LÀM ƠN THEO ĐỀ GIÚP, NHƯNG ĐI LÀM, MÌNH LẬT MẶT, THEO QUY TẮC ĐÃ ĐC HỌC Ở TRÊN, ĐỀ 
+
+*PROJECT LÀ MỘT MODULE BỰ TRONG SOLUTION, NÓ CHỨA CÁC CLASS ĐỂ GIẢI QUYẾT 1 CHỨC NĂNG BỰ NÀO ĐÓ, VÍ DỤ PROJECT CHỈ FOCUS VÀ AUTHOR, PROJECT KHÁC CHÌ FOCUS VÀO CÁC UITL (GỬI MAIL, XUẤT PDF, IMPORT FILE...) CÓ PROJECT CHỊU TRÁCH NHIỆM CRUD TABLE!!!!
+- MỖI PROJECT LÀ 1 THƯ MỤC CON CỦA SOLUTION\
+- MỖI PROJECT CHỨA NHIỀU CLASS BÊN TRONG, KHI BIÊN DỊCH GOM LẠI THÀNH 1 FILE .DLL 
+  DLL: DYNAMIC LINK LIBRARY ( `, JAR TRONG JAVA)
+  FILE .DLL ĐC GỌI TÊN LÀ ASSEMBLY ( 1 FILE NHỊ PHÂN LÀ MẢNH GHÉP, CẤU KIỆN, MIẾNG LEGO ĐC TẠO NÊN CÁI APP BỰ)
+
+- TRONG 1 SOLUTION SẼ CÓ 1 PROJECT CHÍNH, CHỨA MAIN() HOẶC CHỨA ENDPOINT ĐỂ KHỞI ĐỘNG CÁI APP, PROJECT NÀY ĐC DỊCH RA THÀNH .DLL VÀ .EXE LUÔN, .EXE DÙNG ĐỂ RUN APP
+
+- QUY TẮC ĐẶT TÊN: Y CHANG QUY TẮC ĐẶT TÊN SOLUTION
+  format: TÊN CÔNG TY LÀM APP.TenSolution.TÊN DỰ ÁN BỰ.TÊN CHỨC NĂNG.TênChứcNăngNhỏHơn
+
+- MỖI PROJECT ỨNG VỚI 1 THƯ MỤC TRÊN Ổ ĐĨA, THƯ MỤC 
+
+** Namespace: không gian, căn nhà, nơi chốn, hộ khẩu, thư mục , package(JAVA) chứa file src code .cs bên trong các class. Mặc định C# lấy tên thư mục của project làm namespace của các class bên trong
+Nhưng bạn có quyền ko dùng quy tắc này, nghĩa là tên project, thư mục project ko được dùng làm tên namespace mà bạn độ ra 1 tên bạn thích. ĐC QUYỀN !!! TÙY TEAM, nhưng ae hay dùng default
+
+JAVA THÌ khác : namespace bên java là package tên package phản ánh 100% cấu trúc thư mục trên ổ đĩa để lưu src code
+
+
+- QUY TẮC ĐẶT TÊN NAMESPACE
+			Tên Công Ty làm App.TênSolution.Tên Dự An. Tên Chức Năng Nhỏ Hơn -> CLASS
+			CÓ THỂ KO ĐẶT THEO TÊN THƯ MỤC PROJECT ĐC LUÔN
+				Microsoft.EntityFramework.Core.SqlSever
+				
+
+2. QUY TẮC ĐẶT TÊN CLASS
+- Danh từ Chữ Hoa từng đầu từ vì class là phân nhóm, 1 nhóm, thi phải có tên riêng
+- Ví dụ: Cat, Dog, Employee, HashMap,....
+
+3. QUY TẮC ĐẶT TÊN BIẾN 
+- BIẾN TRONG CLASS còn gọi là FIELD, ATTRIBUTE( 
+- BIẾN TRONG HÀM, NGAY THAM SỐ HÀM, GỌI LÀ BIẾN CỤC BỘ- LOCAL VARIABLE
+
+JAVA									C#
+public class Student{							public class Student
+									{
+  private String id;							   private string _id;  //con Lạc Đà
+  private String name;							   private string _name;
+
+  public Student(String id){						   public Student(string id)
+									   {
+	int basicSalary;							int basicSalary;
+									   }
+
+
+  }
+} 									}
+
+- BIẾN LOCAL: CÚ PHÁP camel Case Notation - cú pháp con Lạc Đà
+- FILE BIẾN C# CŨNG XÀI CON LẠC ĐÀ NHƯ JAVA, NHƯNG THÊM _ Ở ĐẦU TÊN BIẾN
+
+==============================================================
+19/9/2025
+NGOẠI TRUYỆN - KIỂU DỮ LIỆU - DATA TYPE VÀ TRUYỀN THÁI Y
+DỮ LIỆU QUANH TA, VÀ ĐC TRỪ TƯỢNG HÓA VÀO TRONG THẾ GIỚI LẬP TRÌNH CHIA THÀNH 2 DẠNG, NÓI CÁCH KHÁC DỮ LIỆU  QUANH TA CÓ 2 HÌNH THÁI, 2 HÌNH THÁI
+
+1. DỮ LIỆU ĐƠN GIÃN, SINGLE VALUE
+- 5, 10, 15, 52, 2004, 1995, 10, 08, 2001, A, B,...
+
+- ĐƠN GIÁ TRỊ, KO CẦN NHIỀU LỜI ĐỂ MÔ TẢ VỀ NÓ, NÓ CHỈ CÓ NHIÊU ĐÓ MÀ THÔI
+-> JAVA GỌI ĐÁM NÀY LÀ PRIMITIVE DATA TYPE
+-> C#: GỌI ĐAM NÀY LÀ VALUE-TYPE DATA TYPE
+
+-> int, long, float, double, char, short, byte, bool/boolean
+
+-> DỮ LIỆU PRI.VAL KHI TRUYỀN VÀO HÀM THÌ ĐỂ HÀM CÓ INFO XỬ LÍ THÌ CÂU CHUYỆN DIỄN RA THẾ NÀO? CON INT ,CON LONG, CON DOUBLE KHI TRUYỀN VÀO HMÀ THÌ CHUYỆN GÌ XẢY RA
+
+2. DỮ LIỆU PHỨC TẠP, COMPLEX VALUE, COMPILCATED VALUE, COMPOSITE VALUE
+
+-----------------------------------------------------------------------------
+[1] TRUYỀN DỮ LIỆU VÀO HÀM STYLE TRUYỀN THAM TRỊ, PASS BY VALUE
+
+- KO NÓI NĂNG GÌ CẢ, PRI.VAL DATA TYPE KHI ĐƯA VÀO HÀM MẶC ĐỊNH LÀ TRUYỀN THAM TRỊ!!!! INT, LONG, FLOAT, DOUBLE... ĐƯA VÀO HÀM, LÀ THAM TRỊ -> ĐÚNG CHO CẢ C#, C, JAVA
+
+- NHƯNG C# CÒN LÀM NHIỀU HƠN THẾ, KO CÓ TRONG JAVA!!!!!!
+  VỚI PRIMITIVE, VAULE-TYPE int long float, ..... C# CÓ THỂ TRUYỀN THAM CHIẾU LUÔN:
+ĐẶC QUYỀN TRUYỀN THAM CHIẾU LÀ MẶC ĐỊNH CHO KIỂU DỮ LIỆU PHỨC TẠP, KIỂU OBJECT (JAVA VÀ C#) NHƯNG VỚI C# CÓ THỂ TRUYỀN THAM CHIẾU VỚI DATA ĐƠN GIẢN KO CẦN ĐẾN OBJECT
+- JAVA: INT LONG FLOAT DOUBLE ..... -> THAM TRỊ NHEN
+- C#: INT LONG FLOAT DOUBLE... -> THAM TRỊ NHEN (DEFAULT): NHƯNG THAM CHIẾU ĐC LUÔN-> TA XÀI THÊM 2 TỪ KHÓA MỚI : out, ref
+
+[2] TRUYỀN DỮ LIỆU VÀO HÀM STYLE TRUYỀN THAM CHIẾU, PASS BY REFRENCE
+- TRONG HÀM CÓ SỬA BÊN NGOÀI ĐỔI THEO!!!!!!!!
+
+* VỚI PRIMTTIVE, VALUE TYPE, THÌ CÓ THỂ TRUYỀ THAM CHIẾU LUÔN NẾU THÊM KEYWORD OUT TRONG THAM SỐ
+- TRONG HÀM SỬA BIẾN THÀNH THAM SỐ, BIẾN GỐC BÊN NGOÀI BỊ ĐỔI THEO LUÔN
+- XÀI: CÓ TỪ OUT Ở LÚC TRUYỀN THAM SỐ
+       BIẾN ĐẦU VÀO KO CẦN GẮN GIÁ TRỊ; VÌ ĐẰNG NÀO NÓ CX BỊ ĐÈ VALUE BỞI BÊN TRONG HÀM!!!!!! TRONG HÀM SỬA BIẾN ĐẦU VÀO BÊN NGOÀI!!!!
+
+       KO CẦN TRUYỀY VALUE VÌ HÀM OUT ĐÃ HỨA SẼ CÓ VALUE TRẢ VỀ!!!!!!!
+
+
+
+
+==============================================================
+16/09/2025
+==============================================================
+NGUYÊN LÝ THIẾT KẾ HƯỚNG ĐỐI TƯỞNG - OOP PRINCIPLES
+
+
+* ABSTRACTION: TRỪU TƯỢNG HÓA, NHẬN DIỆN CLASS TỪ BÀI TOÁN
+* ENCAPSULATION: ĐÓNG GÓI ĐẶC TÍNH VÀ HÌNH VI TRONG 1 ĐƠN VỊ 
+      	         CHE GIẤU VÀ SHOW RA KHI CẦN THIẾT QUA PRIVATE/PUBLIC
+* INHERITANCE: LEVERAGE THE RE-USE ABILITY OF CODE - REUSE CODE
+		MÀ KO CẦN CODE LẠI, CON THỪA KẾ TỪ CHA!!!
+* POLYMORPHISM: ĐA XẠ ĐA HÌNH, 1 HÀNH ĐỘNG CÓ NHIỀU CÁC TRIỂN KHAI, 1 HÀM CÓ NHIỀU HÌNH THỨC VIẾT CODE KHÁC NHAU
+	        TÍNH DIỆN TÍCH()		-> ABSTRACT METHOD
+ 		TÍNH DIỆN TÍCH_TRÒN()	-> PI R^2	-> IMPLEMENTATION
+		TÍNH DIẸN TÍCH_ CN()	-> W * L   	-> IMPLEMENTATION
+
+		@OVERRIDE VÀ #OVERLOAD
+
+NÂNG CAO:  S.O.L.T.D			-> DI, IoC Inversion of Control
+					   Dependency Ịnection
+
+S: SINGLE RESPONSIBILITY: MỖI CLASS KO NÊN ÔM ĐỒM CÔNG VIỆC
+			  CHỈ NÊN LÀM 1 LOẠI VIỆC MÀ THÔI
+			  CLASS STUDENT CHỈ XOAY QUANH STUDENT
+			  CLASS GENERATE OR CODE THÌ CHỈ GENERATE
+OR, KO LÀM THÊM VIỆC GỬI email
+
+==========================================================================================
+SA - SOLUTION ARCHITECT		-> VỊ TRÍ TUYỂN DỤNG , CHỈ THIẾT KẾ DÀN KHUNG CLASS -> MỤC TIEU DỄ BẢO TRÌ, NÂNG CAO, MỞ RỘNG CODE TRONG TƯƠNG LAI -> LƯƠNG TỪ 4500+ USD/MONTH Ở VN
+==========================================================================================
+Document cho .DLL
+Copy
+
+==========================================================================================
+TRUYỀN THAM CHIẾU: OUT, REF, MẶC ĐỊNH BIẾN ABSTRAC
+TRUYỀN THAM SỐ: IN(READ ONLY)
+

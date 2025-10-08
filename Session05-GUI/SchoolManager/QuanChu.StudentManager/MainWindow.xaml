@@ -1,0 +1,25 @@
+﻿<Window x:Class="QuanChu.StudentManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanChu.StudentManager"
+        mc:Ignorable="d"
+        Title="The list of students" Height="450" Width="1040" Background="#c80815" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="LoginButton" Content="Load Data" HorizontalAlignment="Left" Height="80" Margin="835,24,0,0" VerticalAlignment="Top" Width="160" 
+            Foreground="#ff0000" Background="#90ee90"
+            FontSize="20" FontWeight="ExtraBold" 
+            />
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="80" Margin="835,124,0,0" VerticalAlignment="Top" Width="160" 
+            Foreground="#ff0000" Background="#90ee90"
+            FontSize="20" FontWeight="ExtraBold" 
+            />
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="80" Margin="835,224,0,0" VerticalAlignment="Top" Width="160" 
+            Foreground="#ff0000" Background="#90ee90"
+            FontSize="20" FontWeight="ExtraBold" Click="QuitButton_Click" 
+            />
+        <DataGrid HorizontalAlignment="Left" Height="355" Margin="40,24,0,0" VerticalAlignment="Top" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+    </Grid>
+</Window>

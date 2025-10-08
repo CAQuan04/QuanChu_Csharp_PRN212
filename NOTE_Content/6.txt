@@ -1,0 +1,6 @@
+instant variable: kh co static
+class level: cos static
+phải khai báo trong hàm member của class
+
+Bài 4: Cách tạo thư viện hand-made DLL(20/08/2025)
+dowloand dotpeek, rider ide và khám phá

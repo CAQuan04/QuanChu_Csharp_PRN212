@@ -1,0 +1,12 @@
+(HIỂU ĐƯỢC CỐT LÕI NGÔN NGỮ) 
+IDE-INTEGRATED DEVELOPMENT ENVIRONMENT(full đồ chơi, tích hợp tất cả mõi thứ )
+-Sự khác biệt về IDE ,text editer, code editer
+>>>>>App hỗ trợ/Chạy đa nền( Hệ điều hành + phàn cứng mà hệ điều hành chạy trên)
+windows chạy trên cpu ARM, INTEL, AMD
+MAC                   ARM, M1,....
+.DLL chạy đc cả wins, Linx, mã code kh viết lại, kh cần viết lại cái file .CS(.JAVA) - Source code 
+"MACHINE LIKE" -> "WRITE ONCE, RUN ANY WHERE"
+>>>>>>>>Language:	 Language Neutral
+Original filename:	 HappyNewYear.dll
+> dotnet new console
+--framework net8.0 -—Use-program-main

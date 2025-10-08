@@ -1,0 +1,206 @@
+OOP:	4 					+			5
+4: 
+- ABSTRACTION						S: SINGLE RESPONSIBILITY
+ (TRỪU TƯỞNG HÓA):GIẤU BỚT CHI TIẾT			 (Đơn nhiệm):Mỗi class chỉ làm 1 việc 
+ CHỈ ĐƯA RA CỐT LÕI CẦN DÙNG 				 duy nhất, tránh “đa zi năng”	
+ VD: ĐI XE MÁY CHỈ CẦN BIẾT TAY GA,			 VD: StudentRepository chỉ lo lưu/xóa/sửa dữ liệu
+ THẮNG, MÁY NỔ, KO CẦN HIỂU QUÁ RÕ 			 không nên kiêm luôn việc in báo cáo.	
+	
+- ENCAPSULATION						O: Open/Closed Principle
+ (Đóng gói): một “hộp” (class), che giấu		 (Mở/Đóng): ode phải mở rộng dễ dàng
+ bên trong, chỉ cho phép xài				 nhưng không sửa code gốc gây hỏng
+ qua public method.					 VD: Thêm "thanh toán MOMO" mà kh cần sửa clas
+ VD: ATM giấu mạch điện bên trong,			 Payment, chỉ cần kế thừa/ mở rộng
+ bạn chỉ bấm nút để rút tiền.
+
+- INHERITANCE						L:Liskov Substitution Principle
+ (Kế thừa): Class con kế thừa thuộc tính và	   	 (Thay thế Liskov): Lớp con phải thay lớp cha được
+ phương thức từ class cha để tái sử dụng.		 mà không phá chương trình.
+ VD: "Chó" và "Mèo" đều kế thừa từ "Động vật"		 VD:Nếu Bird có fly(), thì Penguin không nên kế thừa
+ → có chung đặc điểm như “ăn, ngủ”			 Bird vì không bay đc
+
+- POLYMORPHISM						I:Interface Segregation Principle
+ (Đa hình): Một hành động nhưng có nhiều cách		 (Tách gián tiếp): không ép class cài đặt những thứ không cần
+ thực hiện khác nhau.					 VD: đừng tạo interface IMachine chứa cả Print(), Scan(), Fax()
+ VD: Lệnh draw() có thể vẽ hình tròn,			 Máy in chỉ cần dùng Print()
+ hình vuông, tam giác tùy đối tượng.
+							D:Dependency Inversion Principle
+							 (Đảo ngược phụ thuộc): Class nên phụ thuộc vào abstract/interface
+							 ko phụ thuộc vào class cụ thể.
+							 VD: OrderService gọi qua IPayment thay vì gọi trực tiếp MomoPayment hay VisaPayment.
+
+CLASS VÀ		OBJECT / INSTANCE OF A CLASS
+			1 HIỆN THÂN,  1 THỂ HIỆN CỦA CLASS
+KHUÔN - MOLD		1 PHIÊN BẢN ĐỜI THỰC
+TEMPLATE - ĐỊNH DẠNG
+FORM - BIỂU MẪU
+BLUE-PRINT - BẢN PHÁC THẢO
+===================================================================================================
+
+SWP391:
+JSON
+
+===================================================================================================
+OOAD TỐT:
+- DEVELOPER		     2K
+- TECHNICAL LEAD             2-3K
+- TECHNICAL DIRECTOR      -> 6000$	|
+- CTO			  -> 8000$	| MỤC TIÊU 4Y29
+- SA - SOLUTION ARCHITECT -> 4500$	|
+===================================================================================================
+GIẢI NGỐ PROPERTY TRONG C# - KO CÓ TƯƠNG ĐƯƠNG TRONG JAVA - KỸ THUẬT GET SET KIỂU MỚI
+- VÌ GET SET ĐANG VIẾT RẤT NHÀM CHÁN, ĐƠN ĐIỆU, KO MỚI MẺ, NHƯNG PHẢI LÀM, GỌI LÀ BOILER-PLATE
+
+I. GET SET LÀ GÌ????
+- GET LÀ LAYS VỀ 1 VALUE CỦA ĐẶC TÍNH BÊN TRONG OBJECT 
+
+- VÍ DỤ MUỐN LẤY NAME, TA VIẾT HÀM
+		string GetName() => _name; (return_name)}
+
+* KẾT LUẬN: TÊN BIẾN CHÍNH LÀ GET LUÔN RỒI
+	    HÀM GET CHẲNG QUA LÀ NÉM RA TÊN BIẾN _
+
+- XÀI: an.GetName()			-> Hậu trường là an._name
+       bình.GetName()			-> Hậu trường là bình._name
+
+* GET LÀ THAY ĐỔI VALUE CỦA 1 ĐẶC TÍNH BÊN TRONG OBJECT THÔNG QUA HÀM TÊN SET
+- VÍ DỤ MUỐN THAY ĐỔI _NAME, TA VIẾT HÀM
+		VOID SETNAME(STRING NAME) -> _NAME - VALUE;
+* KẾT LUẬN: TÊN BIẾN - ???? CHÍNH LÀ SET LUÔN RỒI
+		HÀM SET CHẢNG QUA LÀ BIẾN _ - ???? VALUE MỚI
+
+*XÀI: AM.SETNAME("NGỌC TRINH") -> HẬU TRƯỜNG LÀ AN._NAME = "NGỌC TRINH"
+
+================================================================================================================
+
+II. 1 BIẾN BẤT KÌ ĐÃ BAO GỒM KHÁI NIỆM GET / SET
+-int yob = 2005;
+
+- get biến yob để xài cw(yob); -> màn hình in ra 2005
+				TÊN BIẾN CHÍNH LÀ GET
+-set biến để thay đổi: yob - 2007;
+			TÊN BIẾN _ ???; CHÍNH LÀ SET
+- THAY VÌ VIẾT 2 HÀM GET SET DÀI DÒNG, TẠI SAO KO DÙNG NGAY TÊN BIẾN ĐỂ CÓ SẴN GET SET CHO CODE VIẾT TỰ NHIÊN HƠN, ĐỠ NHÀM CHÁN HƠN
+
+		an.GetYob()		ko tự nhiên bằng 	an._yob;		vi phạm Encapsulation
+		an.SetYob(2007)		ko tự nhiên băng 	an._yob - 2007;
+
+			an.Yob				-> link với _yob;
+			an.Yob = 2007;
+			  PROPERTY: LÀ 1 BIẾN MỚI THÊM VÀO CLASS 
+				    VÌ LÀ BIẾN NÊN NÓ MANG LUÔN Ý NGHĨA GET VÀ SET
+				    TÊN BIẾN LÀ GET
+				    TÊN BIẾN - LÀ SET
+				    BIẾN NÀY THÊM ĐOẠN CODE NGẮN ĐỂ LINK VỚI BIẾN _ PHÍA SAU 
+				LÀ CÁCH VIẾT GET SET KIỂU MỚI, BẰNG CÁCH DÙNG BIẾN BAO NGOÀI
+				ĐỂ DÙNG BIẾN TỰ NHIÊN, GỒM GET SET
+				BẢN CHẤT PROPERTY VẪN LÀ HÀM GET SET NHƯNG KHI XÀI THÌ TỰ NHIÊN
+
+- GET SET KIỂU MỚI, THÌ VẪN CẦN FIELD _ PHÍA SAU ĐỂ CHỐNG LƯNG CÁI VALUE
+  Id: ĐÓNG VAI TRÒ TIẾP TÂN, BỒI BÀN
+ _id: là nhà bếp, lo hậu trường. _ ĐC GỌI LÀ BACKING FIELD , FIELD CHỐNG LƯNG PHÍA SAU THẰNG PROPERTY
+
+		public string Id		-2007; VALUE CHO SET
+		{
+   		  get
+    		  {
+        	    return _id;
+    		  }
+    		  set
+    		  {
+        	    _id = value;
+    		  }
+		}
+
+================================================================================================================
+
+III. FULL PROPERTY LÀ GÌ>>>>
+LÀ KỸ THUẬT VIẾT GET SET KIỂU MỚI, DÙNG 1 BIẾN PUBLIC ĐÓNG LUÔN 2 VAI TRÒ GET VÀ SET VÀ CÓ 1 BIẾN_CHỐNG LƯNG CHO 2 HÀM NÀY, ĐỂ PHỤC HỒI LẠI HÀM SET GET NHƯ TRUYỀN THỐNG 
+-- CÚ PHÁP NẾU QUÊN, GÕ PROPFULL TAB TAB
+
+PRIVATE STRING_name;
+
+public string Name {get => _gpa;}
+		   {set=> _gpa = value;}
+get, set,  value là keyword mới, chữ thường nhen
+
+
+===> mình là người nghiêm túc, nghiêm khắc, chuẩn mục get set style full (đầy đủ backing, get, set) cảm giác lại boiler plate!!!! nhàm chắn, lặp lại
+
+================================================================================================================
+
+IV. AUTO IMPLEMENTED PROPERTY LÀ KỸ THUẬT VIẾT NGẮN GỌN, GIẤU LUÔN BACKING FIELD ĐI ĐỂ BACKING FIELD TỰ SINH NGẦM LÚC BUILD VÀ RUN CÚ PHÁP NẾU QUÊN PROP TAB TAB
+
+==> KHI NÀO DÙNG FULL, KHI NÀO DÙNG AUTO FULL CHO PHÉP BẠN IF ELSE CHECK VALUE ĐẦU VÀO CÓ PHÙ HỢP Ý ĐỒ HAY KHÔNG
+    AUTO: KO CẦN VIẾT CODE TRONG GET SET TUY NGỮ CẢNH MÀ BẠN SỬ DỤNG PHÙ HỢP
+
+================================================================================================================
+
+Nullable: bàn về null( able, able to có thể) 
+null: trong db 1 cột mang null nghĩa là cột đó chưa có giá trị, chưa biết chính xác là gì, từ từ sẽ có, nhưng ngay lúc này chưa biết
+
+Create table Student
+{
+	id long indentity primaty key, -- key tự động tăng 1
+	Name nvarchar(10) not null
+	Gpa float null,
+	Address nvarchar(100) null,
+}
+
+map thành class
+public class student
+{
+	//private long_id
+	public long id{get;set;}
+	public double Gpa {get;set;} // ko nói gì cả khi new default là ko 
+}
+
+
+Student s = new(){id="SE1", Name="an", Gpa=3.5}
+
+BIẾN PRIMITIVE(JAVA, VALUE-TYPE TRONG C#): INT, LONG, FLOAT, DOUBLE, CHAR, BOOL/BOOLEAN, SHORT, BYTE(STRING LÀ OBJECT)KO CHẤP NHẬN GIÁ TRỊ NULL, PHẢI GẮN GIÁ TRỊ CÁI GÌ TỰ TẾ CHO NÓ VÌ NÓ MANG GIÁ TRỊ 
+
+JAVA: Interger, Long, Float, ... --> wrapper class -> được quyền null
+
+C#: int?, long?, float?, double?...
+
+int yob = ??? phải là con số nào đó
+
+int? yob = phải là con số nào đó 
+	 = null nữa cơ !!!!!!!!!!! biểu diễn ko gì cả
+
+--> biến object được quyền mang null mang ý ko gì cả mà ko cần ? cũng hàm ý ko trỏ đến object nào cả và biến object đang = null mà đem đi xài toang, null reference execption 
+
+biến primitive mà ? nullable, thoải mái xài, màn hình vô nghĩa
+
+biến object mà = null mà xài exeception, tại sao ????
+
+tất nhiên vẫn xài if(binh == null) thì chửi ko có gì để in 
+
+================================================================================================================
+
+int yob = 2005; biến tên gọi cho "value"
+ 		value đơn giãn = value primitive
+
+		chữ new chứa tọa độ Object (vd byte bắt đầu từ 7tr)
+Student an = new Student(...){...};  (Làm những điều đi ngược với mõi người)
+	     	value phức tạp
+
+	RAM 
+
+yob (2005) 4 byte 
+
+an  ("7tr")  8 byte
+
+an.GetYob()
+
+Student binh = new Student(...){...};
+	binh = null;//null ngầm hiểu là 0
+	CW(binh.TotString());//null referience Exception
+	binh = an; 7tr
+
+binh (  0  )  8 byte//có nghĩa đi xuống đáy RAM
+     ( 7tr )
+
+
++Add: lưu tọa độ Object
