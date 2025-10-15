@@ -5,21 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanChu.StudentManager"
         mc:Ignorable="d"
-        Title="The list of students" Height="450" Width="1040" Background="#c80815" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Button x:Name="LoginButton" Content="Load Data" HorizontalAlignment="Left" Height="80" Margin="835,24,0,0" VerticalAlignment="Top" Width="160" 
+        Title="The list of students" Height="600" Width="1200" Background="#c80815" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Left" Width="1060" Margin="140,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="165*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="127*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="LoadData" Content="Load Data" HorizontalAlignment="Left" Height="60" Margin="730,32,0,0" VerticalAlignment="Top" Width="270" 
             Foreground="#ff0000" Background="#90ee90"
-            FontSize="20" FontWeight="ExtraBold" 
+            FontSize="20" FontWeight="ExtraBold" RenderTransformOrigin="0.5,0.5" 
+                Click="LoadData_Click"
+                Loaded="LoadData_Loaded"
+            >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-2.473"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.771"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="60" Margin="730,182,0,0" VerticalAlignment="Top" Width="269" 
+             Style="{StaticResource RedButtonStule}" Click="UpdateButton_Click" 
             />
-        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="80" Margin="835,124,0,0" VerticalAlignment="Top" Width="160" 
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="60" Margin="730,0,0,0" VerticalAlignment="Center" Width="269" 
+            Click="QuitButton_Click" Style="{StaticResource RedButtonStule}" Grid.Row="2"
+            />
+        <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Height="59" Margin="730,106,0,0" VerticalAlignment="Top" Width="269" 
             Foreground="#ff0000" Background="#90ee90"
-            FontSize="20" FontWeight="ExtraBold" 
+            FontSize="20" FontWeight="ExtraBold" Click="CreateButton_Click" 
             />
-        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="80" Margin="835,224,0,0" VerticalAlignment="Top" Width="160" 
-            Foreground="#ff0000" Background="#90ee90"
-            FontSize="20" FontWeight="ExtraBold" Click="QuitButton_Click" 
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="59" Margin="730,270,0,0" VerticalAlignment="Top" Width="269" Grid.Column="2"
+            Click="DeleteButton_Click" Style="{StaticResource RedButtonStule}"
             />
-        <DataGrid HorizontalAlignment="Left" Height="355" Margin="40,24,0,0" VerticalAlignment="Top" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+        <DataGrid x:Name="StudentList" HorizontalAlignment="Left" Height="355" Margin="-90,24,0,0" VerticalAlignment="Top" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="3" SelectionChanged="StudentList_SelectionChanged"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ma sv" Width="50" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Ten sv" Width="50" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Nam sinh sv" Width="50" Binding="{Binding Yob}"/>
+                <DataGridTextColumn Header="Gpa sv" Width="50" Binding="{Binding Gpa}"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
 
     </Grid>
 </Window>

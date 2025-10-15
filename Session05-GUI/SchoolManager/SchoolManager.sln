@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanChu.StudentManager", "QuanChu.StudentManager\QuanChu.StudentManager.csproj", "{3EBE3CFA-A9F5-4F40-8DA1-945F465305C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanChu.StudentManager.DAL", "QuanChu.StudentManager.DAL\QuanChu.StudentManager.DAL.csproj", "{6B23F281-524A-4AB8-B6A4-4E991D15B90C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3EBE3CFA-A9F5-4F40-8DA1-945F465305C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EBE3CFA-A9F5-4F40-8DA1-945F465305C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EBE3CFA-A9F5-4F40-8DA1-945F465305C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B23F281-524A-4AB8-B6A4-4E991D15B90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B23F281-524A-4AB8-B6A4-4E991D15B90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B23F281-524A-4AB8-B6A4-4E991D15B90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B23F281-524A-4AB8-B6A4-4E991D15B90C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

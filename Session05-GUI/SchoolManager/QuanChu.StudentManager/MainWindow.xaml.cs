@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using QuanChu.StudentManager.DAL.Entities;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -46,7 +47,7 @@ namespace QuanChu.StudentManager
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult answer = MessageBox.Show("Are you sure","Confirm ?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult answer = MessageBox.Show("Are you sure", "Confirm ?", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (answer == MessageBoxResult.Yes)
             {
@@ -58,6 +59,59 @@ namespace QuanChu.StudentManager
 
             //nhớ đoạn code này để làm tính năng xóa Delete
             //thang điểm chấm cho tính năng delete là khi delete phải hỏi có chắc xóa ko, bị trừ 0.5 điểm.
+        }
+
+        private void LoadData_Click(System.Object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
+
+        private void LoadData_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Bước 1 chuẩn bị 1 cái list student bằng 1 cái túi từ db lên, tạm thời hard code, cho ta sẵn vào
+            List<Student> bag = new();
+            bag.Add(new Student() { Id = 1, Name = "an nguyen", Yob = 2005, Gpa = 3.5 });
+            bag.Add(new Student() { Id = 2, Name = "binh nguyen", Yob = 2004, Gpa = 3.6 });
+            bag.Add(new Student() { Id = 3, Name = "cuong nguyen", Yob = 2003, Gpa = 3.7 });
+            bag.Add(new Student() { Id = 4, Name = "dung nguyen", Yob = 2002, Gpa = 3.8 });
+            bag.Add(new Student() { Id = 5, Name = "em nguyen", Yob = 2001, Gpa = 3.9 });
+            StudentList.ItemsSource = bag;
+            //grid ơi tao gửi mã cái túi
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            //1. kiểm tra xem user đã chọn 1 dòng trên grid chưa. Nếu chưa chọn, chửi, muốn xóa thì phải chọn đúng
+            //2. Hỏi câu are you sure ? nếu đã chọn dòng để xóa hoặc update
+            //3. nếu yes thì xóa trong DB và F5 lại cái grid để thấy dòng này đã xóa đã biến mất, NO thì thôi
+            //Cái StudentListDataGrid nó sẽ lắng nghe xem user có chọn dòng nào không và mỗi dòng nếu chọn thì là 1 student x vì mình đưa 1 cái bag student vào grid mà
+            //Mình chỉ việc hỏi nó có dòng chọn hay không, qua cái PROPERTY!!!!
+
+            Student? selected = StudentList.SelectedItem as Student;//as: ép kiểu 1 dòng về student, hoặc ép ko đc thì là null, nghĩa là chưa chọn dòng củ thể !!!!
+            if (selected == null)
+            {
+                //nhấn Delete mà chưa chọn dòng, chửi chết mẹ nó
+                MessageBox.Show("Please select a row to delete", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;// thoát khỏi hàm nút xóa
+            }
+            //todo: viết code phần xóa that trong db
+            //ghi thông báo xóa thành công, giả thôi sau này làm thật
+            MessageBox.Show($"Delet Successfully student: {selected.Id},{selected.Name}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            DetailWindow detail = new();
+            detail.ShowDialog();
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

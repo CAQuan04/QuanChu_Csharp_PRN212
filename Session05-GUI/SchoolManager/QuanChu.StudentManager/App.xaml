@@ -10,7 +10,26 @@
             <Setter Property="Foreground" Value="#ff0000" ></Setter>
             <Setter Property="FontSize" Value="20" ></Setter>
             <Setter Property="FontWeight" Value="ExtraBold" ></Setter>
-
+        </Style>
+        <!--Áp dụng đồng loạt mỗi nhãn trên màn hình, màu chữ vàng, front 20. đậm, nền trong suốt-->
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <!--Mỗi ô nhập trên màn hình máy chữ đỏ, đậm, font 20, màu trắng default-->
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="RedButtonStule"
+                TargetType="Button">
+            <Setter Property="Background" Value="#90ee90"/>
+            <Setter Property="Foreground" Value="#ff0000"/>
+                <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="ExtraBlack"/>
 
         </Style>
     </Application.Resources>
