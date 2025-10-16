@@ -112,7 +112,20 @@ namespace QuanChu.StudentManager
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            Student? selected = StudentList.SelectedItem as Student;//as: ép kiểu 1 dòng về student, hoặc éo ko đc thì là null, nghĩa là chưa chọn dòng củ thể !!!
+            if (selected == null)
+            {
+                //nhấn delete mà chưa chọn dòng, chửi chết mẹ nó
+                MessageBox.Show("Please select a row to update", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;// thoát khỏi hàm nút xóa
+            }    
 
+            //đã chọn 1 dòng
+            DetailWindow detail = new();
+            //gửi thêm rồi mới show
+            detail.EditedOne = selected;//gắn selected từ main qua cho biến editedone của detail
+            //ko tạo mới 2 chàng 1 nàng
+            detail.ShowDialog();
         }
     }
 }

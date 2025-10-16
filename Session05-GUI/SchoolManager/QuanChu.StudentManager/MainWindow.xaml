@@ -5,43 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanChu.StudentManager"
         mc:Ignorable="d"
-        Title="The list of students" Height="600" Width="1200" Background="#c80815" WindowStartupLocation="CenterScreen">
-    <Grid HorizontalAlignment="Left" Width="1060" Margin="140,0,0,0">
+        Title="The list of students" Height="605" Width="1185" Background="#c80815" WindowStartupLocation="CenterScreen">
+    <Grid Margin="75,10,0,4" HorizontalAlignment="Left" Width="1110">
         <Grid.RowDefinitions>
-            <RowDefinition Height="165*"/>
             <RowDefinition Height="0*"/>
-            <RowDefinition Height="127*"/>
+            <RowDefinition Height="324*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="216*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="LoadData" Content="Load Data" HorizontalAlignment="Left" Height="60" Margin="730,32,0,0" VerticalAlignment="Top" Width="270" 
+        <Button x:Name="LoadData" Content="Load Data" HorizontalAlignment="Left" Margin="725,39,0,230" Width="270" 
             Foreground="#ff0000" Background="#90ee90"
             FontSize="20" FontWeight="ExtraBold" RenderTransformOrigin="0.5,0.5" 
                 Click="LoadData_Click"
-                Loaded="LoadData_Loaded"
+                Loaded="LoadData_Loaded" Grid.RowSpan="2"
             >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform AngleX="-2.473"/>
-                    <RotateTransform/>
+                    <RotateTransform Angle="-0.15"/>
                     <TranslateTransform X="0.771"/>
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
         <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="60" Margin="730,182,0,0" VerticalAlignment="Top" Width="269" 
-             Style="{StaticResource RedButtonStule}" Click="UpdateButton_Click" 
+             Style="{StaticResource RedButtonStule}" Click="UpdateButton_Click" Grid.RowSpan="2" 
             />
         <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="60" Margin="730,0,0,0" VerticalAlignment="Center" Width="269" 
-            Click="QuitButton_Click" Style="{StaticResource RedButtonStule}" Grid.Row="2"
+            Click="QuitButton_Click" Style="{StaticResource RedButtonStule}" Grid.Row="3"
             />
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Height="59" Margin="730,106,0,0" VerticalAlignment="Top" Width="269" 
             Foreground="#ff0000" Background="#90ee90"
-            FontSize="20" FontWeight="ExtraBold" Click="CreateButton_Click" 
+            FontSize="20" FontWeight="ExtraBold" Click="CreateButton_Click" Grid.RowSpan="2" 
             />
-        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="59" Margin="730,270,0,0" VerticalAlignment="Top" Width="269" Grid.Column="2"
-            Click="DeleteButton_Click" Style="{StaticResource RedButtonStule}"
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="59" Margin="730,270,0,0" VerticalAlignment="Top" Width="269"
+            Click="DeleteButton_Click" Style="{StaticResource RedButtonStule}" Grid.RowSpan="3"
             />
 
-        <DataGrid x:Name="StudentList" HorizontalAlignment="Left" Height="355" Margin="-90,24,0,0" VerticalAlignment="Top" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="3" SelectionChanged="StudentList_SelectionChanged"
+        <DataGrid x:Name="StudentList" HorizontalAlignment="Left" Height="355" Margin="15,24,0,0" VerticalAlignment="Top" Width="660" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="4" SelectionChanged="StudentList_SelectionChanged"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ma sv" Width="50" Binding="{Binding Id}" />

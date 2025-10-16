@@ -7,10 +7,25 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800" Background="#000080" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="80" Margin="80,224,0,0" VerticalAlignment="Top" Width="160" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="175*"/>
+            <RowDefinition Height="225*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle HorizontalAlignment="Left" Height="329" Margin="41,10,0,0" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Top" Width="714" Fill="Orange" RadiusX="10" RadiusY="10"/>
+
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="80" Margin="65,15,0,0" VerticalAlignment="Top" Width="315" 
                 Foreground="#ff0000" Background="#90ee90"
                 FontSize="20" FontWeight="ExtraBold" 
-                Click="LoginButton_Click"/>
+                Click="LoginButton_Click" Grid.Row="2"/>
+
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Margin="400,15,0,0" Grid.Row="2" Height="80"  VerticalAlignment="Top" Width="315"  Click="QuitButton_Click"/>
+
+        <Label Content="Email" HorizontalAlignment="Left" Width="190" Margin="87,19,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37"/>
+        <Label Content="Password" HorizontalAlignment="Left" Width="190" Margin="87,80,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37" Grid.RowSpan="2"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Margin="272,25,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" Height="29" TextChanged="EmailTextBox_TextChanged"/>
+        <TextBox x:Name="PasswordTextBox" HorizontalAlignment="Left" Margin="270,86,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="370" Height="29"/>
 
     </Grid>
 </Window>
