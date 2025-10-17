@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanChu.StudentManager"
         mc:Ignorable="d"
-        Title="DetailWindow" Height="535" Width="810" Background="#0000cd" WindowStartupLocation="CenterScreen"
+        Title="DetailWindow" Height="580" Width="810" Background= "DarkBlue" WindowStartupLocation="CenterScreen"
          Loaded="Window_Loaded_1">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Rectangle HorizontalAlignment="Left" Height="395" Margin="12,84,0,0" Stroke="Black" VerticalAlignment="Top" Width="498" Fill="DarkSeaGreen" RadiusX="10" RadiusY="10"/>
-        <TextBox x:Name="YobTextBox" HorizontalAlignment="Left" Margin="145,327,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Height="42" TextChanged="YobTextBox_TextChanged"/>
-        <TextBox x:Name="GpaTextBox" HorizontalAlignment="Left" Margin="145,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" TextChanged="GpaTextBox_TextChanged" Height="34"/>
-        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="145,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Height="41" TextChanged="IdTextBox_TextChanged"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="145,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Height="37" TextChanged="NameTextBox_TextChanged"/>
+        <Rectangle HorizontalAlignment="Left" Height="430" Margin="12,84,0,0" Stroke="Black" VerticalAlignment="Top" Width="498" Fill="DarkSeaGreen" RadiusX="10" RadiusY="10"/>
+        <TextBox x:Name="YobTextBox" HorizontalAlignment="Left" Margin="145,327,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Height="40" TextChanged="YobTextBox_TextChanged"/>
+        <TextBox x:Name="GpaTextBox" HorizontalAlignment="Left" Margin="142,264,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" TextChanged="GpaTextBox_TextChanged" Height="40"/>
+        <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="145,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Height="40" TextChanged="IdTextBox_TextChanged"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="145,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323" Height="40" TextChanged="NameTextBox_TextChanged"/>
         <Label Content="Id" HorizontalAlignment="Left" Width="190" Margin="45,134,0,0" VerticalAlignment="Top"/>
         <Label Content="Name" HorizontalAlignment="Left" Width="190" Margin="40,202,0,0" VerticalAlignment="Top"/>
         <Label Content="Yob" HorizontalAlignment="Left" Width="190" Margin="40,329,0,0" VerticalAlignment="Top"/>
@@ -33,7 +33,7 @@
             </Button.RenderTransform>
         </Button>
         <Label x:Name="TitleLabel" Content="Tạo mới || Sửa sinh viên " HorizontalAlignment="Left" Margin="10,-1,0,0" VerticalAlignment="Top" Foreground="Red" FontSize="50" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="240,392,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="MajorComboBox" HorizontalAlignment="Left" Margin="150,392,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="ComboBox_SelectionChanged" Height="27"/>
     </Grid>
 
 </Window>
