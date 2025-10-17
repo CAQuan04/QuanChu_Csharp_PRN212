@@ -9,26 +9,16 @@
     <Grid Margin="75,10,0,4" HorizontalAlignment="Left" Width="1110">
         <Grid.RowDefinitions>
             <RowDefinition Height="0*"/>
-            <RowDefinition Height="324*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="216*"/>
+            <RowDefinition Height="354*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="191*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="LoadData" Content="Load Data" HorizontalAlignment="Left" Margin="725,39,0,230" Width="270" 
-            Foreground="#ff0000" Background="#90ee90"
-            FontSize="20" FontWeight="ExtraBold" RenderTransformOrigin="0.5,0.5" 
-                Click="LoadData_Click"
-                Loaded="LoadData_Loaded" Grid.RowSpan="2"
-            >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-2.473"/>
-                    <RotateTransform Angle="-0.15"/>
-                    <TranslateTransform X="0.771"/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="60" Margin="730,182,0,0" VerticalAlignment="Top" Width="269" 
+        <Button x:Name="LoadData" Content="Load Data" HorizontalAlignment="Left" Height="60" Margin="730,29,0,0" VerticalAlignment="Top" Width="269" 
+    Click="LoadData_Click"
+Loaded="LoadData_Loaded" Grid.RowSpan="2" 
+    />
+
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="60" Margin="731,189,0,0" VerticalAlignment="Top" Width="269" 
              Style="{StaticResource RedButtonStule}" Click="UpdateButton_Click" Grid.RowSpan="2" 
             />
         <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="60" Margin="730,0,0,0" VerticalAlignment="Center" Width="269" 
@@ -39,10 +29,10 @@
             FontSize="20" FontWeight="ExtraBold" Click="CreateButton_Click" Grid.RowSpan="2" 
             />
         <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Height="59" Margin="730,270,0,0" VerticalAlignment="Top" Width="269"
-            Click="DeleteButton_Click" Style="{StaticResource RedButtonStule}" Grid.RowSpan="3"
+            Click="DeleteButton_Click" Style="{StaticResource RedButtonStule}" Grid.RowSpan="2"
             />
 
-        <DataGrid x:Name="StudentList" HorizontalAlignment="Left" Height="355" Margin="15,24,0,0" VerticalAlignment="Top" Width="660" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="4" SelectionChanged="StudentList_SelectionChanged"
+        <DataGrid x:Name="StudentList" HorizontalAlignment="Left" Height="355" Margin="15,24,0,0" VerticalAlignment="Top" Width="660" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.RowSpan="3" SelectionChanged="StudentList_SelectionChanged"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ma sv" Width="50" Binding="{Binding Id}" />
