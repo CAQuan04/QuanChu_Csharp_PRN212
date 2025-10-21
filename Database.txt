@@ -21,16 +21,16 @@ CHƠI DC STYLE HIỆN ĐẠI - OOP
 				HÀNG CHÍNH HÃNG CỦA MICROSOFT
 				VERSION ĐI KÈM VỚI VERSION CỦA .NET SDK
 
-       CÓ BỘ KHÁC, HÀNG CHÍNH HÃNG THỨ 3, OPEN-SOURCE: DAPPER
+       CÓ BỘ KHÁC, HÀNG CHÍNH HÃNG THỨ 3, OPEN-SOURCE: DAPPER LÀ GI?????, VIBE CODING, AGENT AI (MCP) (VỀ NHÀ TÌM HIỂU!!!)
 
 -NHỮNG MÓN Ở TRÊN GỌI CHUNG LÀ ORM - OPBJECT RELATIONAL: MAPPER/ MAPPING
 KHI CHƠI DB MÀ CHỈ XÀI CLASS/ OBJECT KO QUAN TÂM CÂU SQL
-OBJECT <------------> RELATIONAL / TABLE
+OBJECT <------------> RELATION / TABLE
 public class Student		create table Student
 {				{
 	string id;		  id char(B) primary key;
 	string name;		  name varchar(40)
-	.....
+	.....[
 }				}
 
 Student s = new() (Id="Se1",...)	INSERT INTO Student value ("SE1",...)
@@ -54,5 +54,75 @@ Student s = new() (Id="Se1",...)	INSERT INTO Student value ("SE1",...)
 
 GÕ CÁC LỆNH THEO GHI CHÚ THEO FILE TRÊN GITHUB.COM/DOIT-NOW/C-SHARP-CRAFTMAN/HAND-ON github.com/doit-now/c-sharp-craftman
 
->>>>>>>>>>>>>>>>>>>>cực kì quan trọng tải xong 4 thư viện EF CORE, NHẤN NÚT BUILD | BUILD SOLUTION !!!!!!! ĐỂ REFRESH 
+>>>>>>>>>>>>>>>>>>>>cực kì quan trọng
+ tải xong 4 thư viện EF CORE, NHẤN NÚT BUILD | BUILD SOLUTION !!!!!!! ĐỂ REFRESH 
 CÁC THƯ VIỆN NÀY TRONG VISUAL STUDIO, QUÊN LÀM, LÁT HỒI KO TẠO ĐC CLASS ĐỒNG BỘ TABLE!!!!
+
+
+> GÕ CÂU LỆNH DONET EF DBSCAFFOLD SCAFFOLD... ĐỂ GENERATE NGƯỢC TỪ TABLE THÀNH CLASS 
+
+> NẾU DATABASE CỦA BẠN  CÓ X TABLE (VÍ DỤ 3 TABLE) THÌ TA SẼ NHẬN ĐC X + 1 CLASS
+  (VÍ DỤ 4 CLASS)
+- 3 CLASS ỨNG VỚI 3 TABLE -----ORM MAPPING ĐÓ
+- 1 CLASS CỰC KÌ QUAN TRỌNG, CLASS CORE, CLASS TRUNG TÂM ĐÓNG VAI TRÒ KẾT NỐI VỚI CSDL VÀ CRUD CÁC TABLE, CLASS NÀY THÂU CÁC CÔNG VIỆC DÍNH DÁNG ĐẾN TABLE
+	- CLASS NÀY GỌI LÀ DBCONTEXT - DO EF CORE CUNG CẤP SẴN
+	- ĐỂ XÀI NÓ, TA PHẢI BÁO BIẾN VÀ NEW NHƯ BÌNH THƯỜNG, SAU ĐÓ CHẤM GỌI HÀM
+
+		PRN212BookstoreContext ctx = new PRN212BookstoreContexr();
+		PRN212BookstoreContext ctx = new(); //new rút gọn
+
+* TRONG DBCONTEXT CÓ GI???
+- CÓ CHUỖI KẾT NỐI VỚI DATABASE MÌNH ĐANG CHƠI VỚI (GỒM CẢ USER PASS TỚI SQL SERVER)
+- CÓ 3 List<?> ứng với 3 table, tức là có 3 _bag
+	List<Book> _bag
+	List<Categories> _bag
+	List<Account> _bag
+
+TA CHẠM VÀO 3 _BAG QUA PROPERTY .Book { get; set; }
+				.Categories { get; set; }
+				.Accounts { get; set; }
+VÀ TA ĐÃ SELECT * FROM LUÔN RỒI, VÌ CÓ BAG CHỨ NHIỀU OBJECT!!!
+
+VÌ _BAG THÌ .ADD()		-> EF LÀM SẴN ADD FULL TỪ DG RỒI
+	    .REMOVE()		-> DO TÍNH NĂNG APP CỦA MÌNH HOY
+
+  - LẤY TẤT CẢ CUỐN SÁCH	ctx.Books	(_bag = new() .Add() từ từ)
+    XÓA CUỐN SÁCH		ctx.Books.Remove(????)
+
+
+
+
+
+=====================================================================
+
+COLLECTION FRAMWORK: List, ArratList định nghĩa???
+- ĐỀU DÙNG ĐỂ CHỨA NHIỀU OBJECT, THỰC CHẤT CHỨA NHIỀU CON TRỎ TRỎ TỚI OBJECT THẬT
+- CHÍNH LÀ DANH SÁCH ĐKY MEMBER CỦA MỘT CÁI EVENT, CHÍNH LÀ DSACH THÍ SINH DỰ THI, DSACH CHỈ LƯU CON TRỎ,SỔ LIÊN LẠC TRỎ TỚI BẠN ĐANG Ở ĐÂU ĐÓ
+- CÁI TÚI / GIỎ / BAG ĐỰNG THAM CHIẾU, CON TRỎ TỚI OBJ
+- NẾU XÓA 1 BẠN KHỎI DSACH THÊM 1 BẠN VÀO CUỐI DSACH THÌ BẠN ĐÓ VẪN ĐANG ĐỨNG Ở NGOÀI NHƯNG ĐÃ GHI DANH, BỊ GỠ BỎ TÙY NGỮ CẢNH
+	Add(obj)	Remove(obj)	Nhưng obj, bạn vẫn nằm đâu đó trên hành lang, RAM
+
+JAVA							C#
+List<Student> bag = new Arraylist()			List<Student> bag = new();
+List<Book> bag = new ArrayList()			List<Book> bag = new();
+
+bag.add(???? new Student(...))				bag.Add(??? new Student()[...])
+
+//bag có nhiều obj bên trong (con trỏ, số di động,...)
+//làm sao đi qua từng món, lấy ra các món
+//NHIỀU LÀ FOR
+
+for (Studnet x : bag)					for (Student x in bag)
+ 		TOÁN TỬ VỚI MỌI, VỚI MỖI (A NGƯỢC ) TRONG TOÁN HỌC
+				CHO X THUỘC TẬP HỢP SỐ TỰ NHIÊN (E THIẾU NÉT KHÉP VÒNG)
+	
+Student x = bag.get(i)					Studnet x = bag[i]
+								  = bag.ElementAt(i)
+
+
+
+
+
+
+
+

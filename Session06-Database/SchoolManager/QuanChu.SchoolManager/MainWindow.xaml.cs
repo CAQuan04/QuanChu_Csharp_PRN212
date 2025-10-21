@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using QuanChu.SchoolManager.Entities;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +21,15 @@ namespace QuanChu.SchoolManager
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Prn212BookstoreContext ctx = new();//new ngắn
+
+            List<Book> bag = ctx.Books.Include("BookCategory").ToList();//convert từ DBset<> thành List<>
+            StudentListDataGrid.ItemsSource = bag;//đổ dữ liệu vào datagrid
+
         }
     }
 }

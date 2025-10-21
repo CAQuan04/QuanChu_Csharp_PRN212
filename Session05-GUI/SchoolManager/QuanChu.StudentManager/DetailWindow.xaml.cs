@@ -23,10 +23,12 @@ namespace QuanChu.StudentManager
         //Cửa sổ detail, class detail cần 1 biến student _ediedOne để đc set = selected từ mainwindow truyền sang
         //Nếu bạn dừng backing field thì phải viết code get set cho nó để gắn value vào baking field xài luôn property cho lành cũng đặt mục tiêu vào code đẹp
 
+        //Đây là thuốc tính property để nhận student đc truyền từ main window sang, 
         public Student EditedOne { get; set; }// _editedOne=
-        public DetailWindow()
+
+        public DetailWindow()//Phương thức khởi tạo constructor. Nó đc tự động gọi mỗi khi một cửa sổ chi tiết mới được tạo
         {
-            InitializeComponent();
+            InitializeComponent();//Hàm này để đọc file XAML và dựng giao diện cửa sổ chi tiết theo thiết kế
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,7 +56,10 @@ namespace QuanChu.StudentManager
 
         }
 
+        
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        //Đây là một trình sự kiện (event handler) được kích hoạt một lần duy nhất khi cửa sổ đã đc tải xong
+        //Dùng thực hiện các tác vụ cb hiển thị
         {
 
             //đổ data vào combo box major - lẽ ra phải lấy từ db
@@ -104,6 +109,7 @@ namespace QuanChu.StudentManager
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
+            
         {
             //Đề thi yếu cầu phải bật validation
             //Để check xem name có rỗng ko, min max
