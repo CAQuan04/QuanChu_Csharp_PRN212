@@ -28,4 +28,6 @@ public partial class Book
     //  BookCategory _cate;
     //  biến trỏ đến Category nào
     //mang ý nghĩa cuốn sách thuộc về Category
+
+    //
 }
