@@ -31,5 +31,73 @@ namespace QuanChu.SchoolManager
             StudentListDataGrid.ItemsSource = bag;//đổ dữ liệu vào datagrid
 
         }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Prn212BookstoreContext ctx = new();
+
+            Book book = new Book()
+            {
+                BookId = 100,
+                BookName = "asdsd",
+                Description = "adasda",
+                Author = "Japan",
+                Price = 12313,
+                Quantity = 100,
+                PublicationDate = new DateTime(2020, 10, 31),
+                BookCategoryId = 5//Cate 5 | self help}
+            };
+            ctx.Books.Add(book);//add vào bag, cái giỏ
+            ctx.SaveChanges();//chính thức xong table
+
+
+            //F5 lại cái Grid, đổ lại lưới để có dòng mới
+
+            ctx = new();// quan trọng !!!! phải new lại context
+            List<Book> bag = ctx.Books.Include("BookCategory").ToList();//convert từ DBset<> thành List<>
+            StudentListDataGrid.ItemsSource = bag;//đổ dữ liệu vào datagrid
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            //đi bắt cái dòng đã chọn, học rồi, nhưng em đã quên
+            Book? selected = StudentListDataGrid.SelectedItem as Book;
+            if (selected == null)
+            {
+                MessageBox.Show("Chọn 1 cuốn sách để edit");
+                return;
+            }
+
+            selected.BookName = "Tôi thương mà em đâu có hay";
+            selected.Author = "Đoàn Thạch Biển";
+            Prn212BookstoreContext ctx = new();
+            ctx.Books.Update(selected);
+            ctx.SaveChanges();
+
+            //F5 lại cái Grid, đổ lại lưới để có dòng mới
+            ctx = new();// quan trọng !!!! phải new lại context
+            List<Book> bag = ctx.Books.Include("BookCategory").ToList();//convert từ DBset<> thành List<>
+            StudentListDataGrid.ItemsSource = bag;//đổ dữ liệu vào datagrid
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Book? selected = StudentListDataGrid.SelectedItem as Book;
+            if (selected == null)
+            {
+                MessageBox.Show("Chọn 1 cuốn sách để xóa");
+                return;
+            }
+
+            
+            Prn212BookstoreContext ctx = new();
+            ctx.Books.Remove(selected);
+            ctx.SaveChanges();
+
+            //F5 lại cái Grid, đổ lại lưới để có dòng mới
+            ctx = new();// quan trọng !!!! phải new lại context
+            List<Book> bag = ctx.Books.Include("BookCategory").ToList();//convert từ DBset<> thành List<>
+            StudentListDataGrid.ItemsSource = bag;//đổ dữ liệu vào datagrid
+        }
     }
 }

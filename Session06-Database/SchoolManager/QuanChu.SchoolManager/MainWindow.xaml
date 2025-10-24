@@ -7,12 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="545" Width="990" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,0,0,-61">
-        <DataGrid x:Name="StudentListDataGrid" HorizontalAlignment="Left" Height="450" Margin="25,29,0,0" VerticalAlignment="Top" Width="915" AutoGenerateColumns="False">
+
+        <Button x:Name="CreateButton" Content="Create Book" HorizontalAlignment="Left" Height="60" Margin="50,29,0,0" VerticalAlignment="Top" Width="150" Click="CreateButton_Click"/>
+        <Button x:Name="UpdateButton" Content="Update Book" HorizontalAlignment="Left" Height="60" Margin="285,29,0,0" VerticalAlignment="Top" Width="150" Click="UpdateButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete Book" HorizontalAlignment="Left" Height="60" Margin="525,29,0,0" VerticalAlignment="Top" Width="150" Click="DeleteButton_Click"/>
+        <DataGrid x:Name="StudentListDataGrid" HorizontalAlignment="Left" Height="360" Margin="25,119,0,0" VerticalAlignment="Top" Width="915" AutoGenerateColumns="False">
 
 
-        
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="Mã sách" Width="50" Binding="{Binding BookId}" />
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã sách" Width="50" Binding="{Binding BookId}" />
                 <DataGridTextColumn Header="Tên sách" Width="150" Binding="{Binding BookName}"/>
                 <DataGridTextColumn Header="Mô tả" Width="200" Binding="{Binding Description}"/>
                 <DataGridTextColumn Header="Năm xuất bản" Width="100" Binding="{Binding PublicationDate}"/>
