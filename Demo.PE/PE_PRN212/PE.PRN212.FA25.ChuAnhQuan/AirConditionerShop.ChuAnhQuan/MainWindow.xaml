@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirConditionerShop.ChuAnhQuan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height= "330"
+Width= "600" 
+FontFamily= "Arial"
+FontSize= "14" 
+Background= "#FFD4F7D4" 
+WindowStartupLocation= "CenterScreen" >
     <Grid>
+        <Label Content="Air Conditioner Management" Grid.Row="0" FontSize="24" FontWeight="Bold" Height="44" Width="340" Margin="135,-5,0,0" VerticalAlignment="Top"/>
 
+        <DataGrid x:Name="AirConditionerDataGrid" HorizontalAlignment="Left" Height="275" Margin="15,24,0,0" VerticalAlignment="Top" Width="450" d:ItemsSource="{d:SampleData ItemCount=6}" SelectionChanged="AirConditionerDataGrid_SelectionChanged"
+          AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding AirConditionerId}" Width="50"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding AirConditionerName}" Width="50"/>
+                <DataGridTextColumn Header="Warranty" Binding="{Binding Warranty}" Width="80"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="70"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding DollarPrice}" Width="50"/>
+                <DataGridTextColumn Header="Supplier" Binding="{Binding Supplier.SupplierName}" Width="80"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
     </Grid>
 </Window>

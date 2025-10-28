@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirConditionerShop.ChuAnhQuan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Blue" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="800" Background="Blue" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="280" Margin="30,34,0,0" VerticalAlignment="Top" Width="540" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Height="45" Margin="595,44,0,0" VerticalAlignment="Top" Width="180" 
             Foreground="Blue" Background="Yellow"
             FontSize="25" FontWeight="ExtraBold" 
@@ -24,5 +24,19 @@
             Foreground="Blue" Background="Yellow"
             FontSize="25" FontWeight="ExtraBold" 
             Click="QuitButton_Click"/>
+
+        <DataGrid x:Name="AirConDataGrid" HorizontalAlignment="Left" Height="265" Margin="15,39,0,0" VerticalAlignment="Top" Width="555" AutoGenerateColumns="False" TabIndex="7" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã số" Width="40" Binding="{Binding AirConditionerId}" />
+                <DataGridTextColumn Header="Tên máy lạnh" Width="200" Binding="{Binding AirConditionerName}" />
+                <DataGridTextColumn Header="Bảo hành" Width="70" Binding="{Binding Warranty}" />
+                <DataGridTextColumn Header="Sound Level" Width="100" Binding="{Binding SoundPressureLevel}" />
+                <DataGridTextColumn Header="Feature Function" Width="200" Binding="{Binding FeatureFunction}" />
+                <DataGridTextColumn Header="Quantity" Width="70" Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Price ($)" Width="100" Binding="{Binding DollarPrice}" />
+                <DataGridTextColumn Header="Supplier ID" Width="70" Binding="{Binding SupplierId}" />
+                <DataGridTextColumn Header="Tên nhà cung cấp/nsx" Width="140" Binding="{Binding Supplier.SupplierName}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

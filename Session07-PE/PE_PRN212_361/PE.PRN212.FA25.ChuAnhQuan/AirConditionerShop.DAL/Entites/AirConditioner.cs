@@ -19,7 +19,8 @@ public partial class AirConditioner
 
     public double? DollarPrice { get; set; }
 
-    public string? SupplierId { get; set; }
+    public string? SupplierId { get; set; }//FK, trỏ đến mã nhà cung cấp, nhà sản xuất
 
     public virtual SupplierCompany? Supplier { get; set; }
+    //                              JOIN TO TABLE SupplierCompany
 }

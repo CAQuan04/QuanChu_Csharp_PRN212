@@ -16,7 +16,7 @@ public partial class AirConditionerShopDbContext : DbContext
         : base(options)
     {
     }
-
+    //          list<AIRCONDITIONER> _bag
     public virtual DbSet<AirConditioner> AirConditioners { get; set; }
 
     public virtual DbSet<StaffMember> StaffMembers { get; set; }
