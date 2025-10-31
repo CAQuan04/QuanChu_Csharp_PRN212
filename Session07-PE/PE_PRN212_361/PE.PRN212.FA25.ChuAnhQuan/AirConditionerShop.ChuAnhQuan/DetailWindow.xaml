@@ -5,37 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirConditionerShop.ChuAnhQuan"
         mc:Ignorable="d"
-        Title="DetailWindow" Height="450" Width="800" Background="Blue" WindowStartupLocation="CenterScreen">
+        Title="DetailWindow" Height="450" Width="800" Background="Blue" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
 
 
-        <Label Content="AirConditioner Id"  Grid.Column="0" VerticalAlignment="Top" Margin="10,29,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="AirConditionerIdTextBox" Grid.Row="0" Margin="160,29,315,375" IsReadOnly="True"/>
+        <Label Content="AirConditioner Id"  Grid.Column="0" VerticalAlignment="Top" Margin="15,44,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
+        <TextBox x:Name="AirConditionerIdTextBox" Grid.Row="0" Margin="165,44,310,353" IsReadOnly="True"/>
 
-        <Label Content="AirConditioner Name"  Grid.Column="0" VerticalAlignment="Top" Margin="10,69,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="AirConditionerNameTextBox" Grid.Row="0" Margin="160,69,315,335" IsReadOnly="True"/>
+        <Label Content="AirConditioner Name"  Grid.Column="0" VerticalAlignment="Top" Margin="15,92,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
+        <TextBox x:Name="AirConditionerNameTextBox" Grid.Row="0" Margin="165,92,310,305" IsReadOnly="True"/>
 
-        <Label Content="Warranty"  Grid.Column="0" VerticalAlignment="Top" Margin="10,109,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="WarrantyTextBox" Grid.Row="0" Margin="160,109,315,295" IsReadOnly="True"/>
+        <Label Content="Warranty"  Grid.Column="0" VerticalAlignment="Top" Margin="15,140,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
+        <TextBox x:Name="WarrantyTextBox" Grid.Row="0" Margin="165,140,310,257" IsReadOnly="True"/>
 
-        <Label Content="Sound Pressure Level"  Grid.Column="0" VerticalAlignment="Top" Margin="10,149,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="SoundPressureLevelTextBox" Grid.Row="0" Margin="160,149,315,255" IsReadOnly="True"/>
+        <Label Content="Sound Pressure Level"  Grid.Column="0" VerticalAlignment="Top" Margin="15,189,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
+        <TextBox x:Name="SoundPressureLevelTextBox" Grid.Row="0" Margin="165,189,310,209" IsReadOnly="True" />
 
-        <Label Content="Feature Function"  Grid.Column="0" VerticalAlignment="Top" Margin="10,189,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="FeatureFunctionTextBox" Grid.Row="0" Margin="160,189,315,215" IsReadOnly="True"/>
+        <Label Content="Feature Function"  Grid.Column="0" VerticalAlignment="Top" Margin="15,238,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
+        <TextBox x:Name="FeatureFunctionTextBox" Grid.Row="0" Margin="165,238,310,160" IsReadOnly="True"/>
 
-        <Label Content="Quantity"  Grid.Column="0" VerticalAlignment="Top" Margin="10,229,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="QuantityTextBox" Grid.Row="0" Margin="160,229,315,175" IsReadOnly="True"/>
+        <Label Content="Quantity"  Grid.Column="0" VerticalAlignment="Top" Margin="15,286,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
+        <TextBox x:Name="QuantityTextBox" Grid.Row="0" Margin="165,286,310,111" IsReadOnly="True"/>
 
-        <Label Content="Dollar Price"  Grid.Column="0" VerticalAlignment="Top" Margin="10,269,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <TextBox x:Name="DollarPriceTextBox" Grid.Row="0" Margin="160,269,315,135" IsReadOnly="True"/>
+        <Label Content="Dollar Price"  Grid.Column="0" VerticalAlignment="Top" Margin="15,334,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
+        <TextBox x:Name="DollarPriceTextBox" Grid.Row="0" Margin="165,334,310,63" IsReadOnly="True"/>
 
-        <Label Content="Supplier"  Grid.Column="0" VerticalAlignment="Top" Margin="10,309,650,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="30"/>
-        <ComboBox x:Name="SupplierComboBox" Grid.Row="0" Margin="160,309,315,95" IsReadOnly="True"/>
-        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="70" Margin="565,24,0,0" VerticalAlignment="Top" Width="170" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="40" Click="SaveButton_Click"/>
-        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="70" Margin="565,134,0,0" VerticalAlignment="Top" Width="170" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="40" Click="QuitButton_Click"/>
-        
-        
+        <Label Content="Supplier"  Grid.Column="0" VerticalAlignment="Top" Margin="15,383,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
+        <ComboBox x:Name="SupplierComboBox" Grid.Row="0" Margin="165,383,310,15" IsReadOnly="True"/>
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="70" Margin="565,79,0,0" VerticalAlignment="Top" Width="170" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="40" Click="SaveButton_Click"/>
+        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="70" Margin="565,189,0,0" VerticalAlignment="Top" Width="170" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="40" Click="QuitButton_Click"/>
+        <Label x:Name="DetailWindowMode" Content="Label" HorizontalAlignment="Left" Height="45" Margin="40,19,0,0" VerticalAlignment="Top" Width="435"/>
+
+
 
 
 

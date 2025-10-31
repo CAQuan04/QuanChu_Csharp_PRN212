@@ -47,7 +47,30 @@ namespace AirConditionerShop.ChuAnhQuan
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            //1. CHECK XEM ĐÃ CLICK ĐÚNG DÒNG CHƯA
+            //2. CHỌN 1 DÒNG RỒI THÌ GỬI NÓ SANG MÀN HÌNH DETAIL
+            //3. CHỈNH SỬA DATA BÊN MÀN HÌNH DETAIL, ĐÓNG LẠI
+            //4. F5 GRID
+            //
+            
 
+            AirConditioner? selected = AirConDataGrid.SelectedItem as AirConditioner;
+
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a row before update", "select one", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+
+            DetailWindow detail = new();
+            //GỬI SELECTED SANG THÌ PHẢI NẰM Ở ĐÂY
+            //?????
+            detail.EditedOne = selected;// = _editedOne của Detail
+            //3 chàng trỏ 1 nàng: EditedOne, selected, grid có 1 con trỏ - > trỏ vùng new AirCon đang cần edit!!!
+            detail.ShowDialog();
+
+            //F5 lại cái lưới grid
+            FillDataGrid(_airService.GetALlAirCons());
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -55,6 +78,7 @@ namespace AirConditionerShop.ChuAnhQuan
             //1.CHECK XEM ĐÃ CLICK ĐÚNG DÒNG CHƯA
             //2.ĐÚNG RỒI THÌ ARE YOU SURE
             //3.NHỜ SERVICE XÓA, SERVICE ĐI NHỜ REPO, REPO ĐI NHỜ DBCONTEXT
+            //5.F5 GRID QUA HÀM
 
             AirConditioner? selected = AirConDataGrid.SelectedItem as AirConditioner;
 
@@ -70,9 +94,26 @@ namespace AirConditionerShop.ChuAnhQuan
                 return;
             }
 
+            //                  BLL         DALL
+            //GUI/CONTROLLER -- SERVICE -- REPO -- DBCONTEXT -- TABLE
+            //                          !!!!
             //xóa thật 
-            MessageBox.Show("Xóa thật nè")
+            //MessageBox.Show($"Xóa thật nè: {selected.AirConditionerId}{selected.AirConditionerName}{selected.FeatureFunction}");
+
+            _airService.DeleteAirCon(selected);
+
+            //F5 - REFRESH CÁI GRID ĐỂ THẤY DÒNG XÓA ĐÃ MẤT
+            // VIỆC REFRESH CÁI GRID NÀY XUẤT HIỆN Ở;
+            //NÚI CREATE (THÊM MỚI THÌ PHẢI CHO THẤY ĐÃ THÊM)
+            //NÚI DELETE (MẤT DÒNG TRÊN GRID LUÔN)
+            //NÚI SEARCH (LƯỚI PHẢI HIỆN THỊ 1 -N DÒNG SEARCH THẤY)
+            //LOADED_ (MÀN HÌNH MỞ LÊN, LƯỚI PHẢI ĐC ĐỖ SẴN DATA)
+            //TÁCH 1 HÀM CHỈ LO VIỆC ĐỔ INFO VÀO GRID ->HÀM HELEPR - HÀM TRỢ GIÚP TRONG SÁNG VÀ Ý NGHĨA
+
             
+            FillDataGrid(_airService.GetALlAirCons());
+
+
 
         }
 
@@ -100,6 +141,12 @@ namespace AirConditionerShop.ChuAnhQuan
             //ĐỔ VÀO LƯỚI LUÔN, NHƯNG PHẢI NHỜ TRƯỚC AIRCONSERVICE GIÚP TUI List<AirCon>, Service lại đi nhờ Repo, Repo lại nhớ DBContext
 
             AirConDataGrid.ItemsSource = _airService.GetALlAirCons();
+        }
+
+        private void FillDataGrid(List<AirConditioner> data)
+        {
+            AirConDataGrid.ItemsSource = null;//xóa data đang có nêu có
+            AirConDataGrid.ItemsSource = data;
         }
     }
 }
