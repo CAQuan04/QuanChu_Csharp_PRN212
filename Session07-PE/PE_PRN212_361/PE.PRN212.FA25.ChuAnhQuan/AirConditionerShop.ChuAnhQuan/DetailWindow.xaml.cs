@@ -43,8 +43,7 @@ namespace AirConditionerShop.ChuAnhQuan
             MessageBoxResult answer = MessageBox.Show("Are you sure ?", "quit", MessageBoxButton.YesNo);
             if (answer == MessageBoxResult.Yes)
             {
-                //tắt app
-                Application.Current.Shutdown();
+                this.Close();
             }
         }
 
@@ -52,16 +51,20 @@ namespace AirConditionerShop.ChuAnhQuan
         {
             //BẠN GÕ GÌ TRÊN MÀN HÌNH TỚ CẤT HẾT VÀO OBJECT AIRCON
             AirConditioner obj = new() { };
+
+
             obj.AirConditionerId = int.Parse(AirConditionerIdTextBox.Text);
-            obj.AirConditionerName = string.Air;
-            obj.Quantity= string.QuantityTextBox.Text;
-            obj.DollarPrice = int.Parse(DollarPriceTextBox.Text);
-            obj.Warranty = int.Parse(WarrantyTextBox.Text);
-            obj.SoundPressureLevel = string.SoundPressureLevelTextBox.Text;
-            obj.FeatureFunction = string.FeatureFunctionTextBox.Text;
+
+
+            obj.Quantity = int.Parse(QuantityTextBox.Text);
+            obj.DollarPrice = double.Parse(DollarPriceTextBox.Text);
+            obj.Warranty = WarrantyTextBox.Text;
+            obj.SoundPressureLevel = SoundPressureLevelTextBox.Text;
+            obj.FeatureFunction = FeatureFunctionTextBox.Text;
+            obj.AirConditionerName = AirConditionerNameTextBox.Text;
 
             //CÁI CUỐI KHÓA NGOẠI LẤY THỊT HEO
-            obj.SupplierId = (string)SupplierComboBox.SelectedItem;
+            obj.SupplierId = (string)SupplierComboBox.SelectedValue;
 
             if (EditedOne == null)
             {
@@ -69,6 +72,8 @@ namespace AirConditionerShop.ChuAnhQuan
             }
             else
             {
+             
+
                 _airService.UpdateAirCon(obj);
             } 
             this.Close();
@@ -77,11 +82,13 @@ namespace AirConditionerShop.ChuAnhQuan
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-
+            //Lưu ý: biến EditedOne chính là biến flag, biến cờ đánh dấu trạng thái, mode của màn hình này
+            //Nếu biến này == null, tạo mới, vì kh có selected đc gửi sang!!!
+            //khác null là do đi từ nút bấm [Update], thì có gửi sang selected
+            //Mình dùng biến này để biết khi nào create, khi nào update khi nhấn nút [Save]
             // chẳng quan tâm mode, phải đổ vào combo cả 2 mode
             //tạo mới cx chọn, edit cũng chọ NCC
-            SupplierComboBox.ItemsSource = _supService.GetAllSupplie();
+            SupplierComboBox.ItemsSource = _supService.GetAllSupplier();
             //thằng này combo giống data grid là shơ nhiều dòng
             //nhưng grid show all cột, thằng combo chỉ show 1 cột
             SupplierComboBox.DisplayMemberPath = "SupplierName";//treo đầu dê
@@ -91,29 +98,58 @@ namespace AirConditionerShop.ChuAnhQuan
 
 
             if (EditedOne != null)
-            {
+            {   //EDIT MODE
                 DetailWindowMode.Content = "Sửa thông tin đi em";
+                // ĐỔ INFO TỪ OBJECT VÀO CÁC Ô NHẬP, HỌC RỒI
                 AirConditionerIdTextBox.Text = EditedOne.AirConditionerId.ToString();
+                //CHỮ VÀ SỐ PHẢI CONVERT MỚI GÁN VÀO ĐC 
+                //KHÓA Ô ID LẠI
+                AirConditionerIdTextBox.IsEnabled = false;//ko cho sửa key
 
 
-                AirConditionerNameTextBox.Text = EditedOne.AirConditionerName.ToString();
+                AirConditionerNameTextBox.Text = EditedOne.AirConditionerName; // Tên cũ
                 QuantityTextBox.Text = EditedOne.Quantity.ToString();
                 DollarPriceTextBox.Text = EditedOne.DollarPrice.ToString();
-                WarrantyTextBox.Text = EditedOne.Warranty.ToString();
-                SoundPressureLevelTextBox.Text = EditedOne.SoundPressureLevel.ToString();
-                FeatureFunctionTextBox.Text = EditedOne.FeatureFunction.ToString();
+                WarrantyTextBox.Text = EditedOne.Warranty;
+                SoundPressureLevelTextBox.Text = EditedOne.SoundPressureLevel;
+                FeatureFunctionTextBox.Text = EditedOne.FeatureFunction;
+
+                //CÒN CÁI FK, KO SHOW FK VÀO Ô TEXT, MÀ SHOW QUA TREO ĐẦU DÊ BÁN THỊT HEO
+                //VÌ CATEGORY, HAY NHÀ SẢN XUẤT, NHÀ CUNG CẤP LÀ 1 BẢNG KHÁC
+                //id | name | quantity | price | .... | mã hãng sản xuất FK
+                //                                              H1
+                //                                              H2
+                //MÌNH CHỌN SHOW CÁI COMBOX, CHỨA CHỮ SAMSUNG, TOSHIBA, DAIKIN
+                //NHƯNG KHI CHỌN SAMSUNG, THÌ LẤU H1 CẤT VÀO FK
+
 
                 //nhày đến đúng Cate, đúng hãng sx mà sản phẩm thuộc về SupplierComboBox.SelectedValue
+                SupplierComboBox.SelectedValue = EditedOne.SupplierId;
 
-                SupplierComboBox.SelectedValuePath = EditedOne.SupplierId;
+
+                //CÒN CÁI FK, KO SHOW FK VÀO Ô TEXT, MÀ SHOW QUA TREO ĐÀU DÊ BÁN THỊT HEO
+                //VÌ CATEGORY, HAY NHÀ SẢN XUẤTM NHÀ, NHÀ CUNG CẤP ;LÀ 1 BẢNG KHÁC 
+                //id mã hãng sc |   name tên hãng sx    |   country quốc gia    |
+                //  H1                  SAMSUNG                 HÀN QUỐC
+                //  H2                  TOSHIBA                 NHẬT BẢN
+                //  H3                  DAIKIN                  NHẬT BẢN
+
             }
             else
-            {
+            {   //create mode
                 DetailWindowMode.Content = "Tạo mới đi em";
+                
             }
 
 
         }
+
+        private void SupplierComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
 
         //[SAVE] DO MÀN HÌNH NÀY XÀI CHUNG CHO TẠO MỚI VÀ UPDATE
     }

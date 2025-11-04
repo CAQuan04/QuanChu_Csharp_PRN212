@@ -11,7 +11,7 @@
         <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Height="45" Margin="595,44,0,0" VerticalAlignment="Top" Width="180" 
             Foreground="Blue" Background="Yellow"
             FontSize="25" FontWeight="ExtraBold" 
-            Click="LoginButton_Click"/>
+            Click="CreateButton_Click"/>
         <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Height="45" Margin="595,99,0,0" VerticalAlignment="Top" Width="180" 
             Foreground="Blue" Background="Yellow"
             FontSize="25" FontWeight="ExtraBold" 

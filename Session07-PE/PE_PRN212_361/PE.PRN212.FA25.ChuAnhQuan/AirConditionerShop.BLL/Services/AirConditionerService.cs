@@ -44,7 +44,7 @@ namespace AirConditionerShop.BLL.Services
 
 
 
-        public List<AirConditioner>GetALlAirCons()
+        public List<AirConditioner>GetALLAirCons()
         {
             return _repo.GetAll();
         }

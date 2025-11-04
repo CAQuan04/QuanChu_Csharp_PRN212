@@ -70,7 +70,7 @@ namespace AirConditionerShop.ChuAnhQuan
             detail.ShowDialog();
 
             //F5 lại cái lưới grid
-            FillDataGrid(_airService.GetALlAirCons());
+            FillDataGrid(_airService.GetALLAirCons());
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ namespace AirConditionerShop.ChuAnhQuan
             //TÁCH 1 HÀM CHỈ LO VIỆC ĐỔ INFO VÀO GRID ->HÀM HELEPR - HÀM TRỢ GIÚP TRONG SÁNG VÀ Ý NGHĨA
 
             
-            FillDataGrid(_airService.GetALlAirCons());
+            FillDataGrid(_airService.GetALLAirCons());
 
 
 
@@ -140,13 +140,21 @@ namespace AirConditionerShop.ChuAnhQuan
         {
             //ĐỔ VÀO LƯỚI LUÔN, NHƯNG PHẢI NHỜ TRƯỚC AIRCONSERVICE GIÚP TUI List<AirCon>, Service lại đi nhờ Repo, Repo lại nhớ DBContext
 
-            AirConDataGrid.ItemsSource = _airService.GetALlAirCons();
+            AirConDataGrid.ItemsSource = _airService.GetALLAirCons();
         }
 
         private void FillDataGrid(List<AirConditioner> data)
         {
             AirConDataGrid.ItemsSource = null;//xóa data đang có nêu có
             AirConDataGrid.ItemsSource = data;
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            DetailWindow detail = new();
+            detail.ShowDialog();
+            //f5 lại cái grid
+            FillDataGrid(_airService.GetALLAirCons());
         }
     }
 }

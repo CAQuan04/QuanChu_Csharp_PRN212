@@ -13,7 +13,7 @@ namespace AirConditionerShop.BLL.Services
         //DI, kì 7 không ghi new mà dùng DI
         private SupplierCompanyRepo _repo = new();
 
-        public List<SupplierCompany> GetAllSupplie()
+        public List<SupplierCompany> GetAllSupplier()
         {
             return _repo.GetAll();
         }

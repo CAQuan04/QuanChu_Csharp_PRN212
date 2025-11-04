@@ -5,41 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirConditionerShop.ChuAnhQuan"
         mc:Ignorable="d"
-        Title="DetailWindow" Height="450" Width="800" Background="Blue" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
+        Title="DetailWindow" Height="550" Width="800" 
+        Background="Blue" 
+        WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded">
 
+    <Window.Resources>
+        <Style x:Key="FieldLabel" TargetType="Label">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
 
-        <Label Content="AirConditioner Id"  Grid.Column="0" VerticalAlignment="Top" Margin="15,44,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
-        <TextBox x:Name="AirConditionerIdTextBox" Grid.Row="0" Margin="165,44,310,353" IsReadOnly="True"/>
+        <Style x:Key="DataTextBox" TargetType="TextBox">
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
 
-        <Label Content="AirConditioner Name"  Grid.Column="0" VerticalAlignment="Top" Margin="15,92,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
-        <TextBox x:Name="AirConditionerNameTextBox" Grid.Row="0" Margin="165,92,310,305" IsReadOnly="True"/>
+        <Style x:Key="DataComboBox" TargetType="ComboBox">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="21"/>
+        </Style>
 
-        <Label Content="Warranty"  Grid.Column="0" VerticalAlignment="Top" Margin="15,140,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
-        <TextBox x:Name="WarrantyTextBox" Grid.Row="0" Margin="165,140,310,257" IsReadOnly="True"/>
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="155"/>
+            <Setter Property="Margin" Value="10,20,10,10"/>
+        </Style>
+    </Window.Resources>
 
-        <Label Content="Sound Pressure Level"  Grid.Column="0" VerticalAlignment="Top" Margin="15,189,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
-        <TextBox x:Name="SoundPressureLevelTextBox" Grid.Row="0" Margin="165,189,310,209" IsReadOnly="True" />
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-        <Label Content="Feature Function"  Grid.Column="0" VerticalAlignment="Top" Margin="15,238,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
-        <TextBox x:Name="FeatureFunctionTextBox" Grid.Row="0" Margin="165,238,310,160" IsReadOnly="True"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Label Content="Quantity"  Grid.Column="0" VerticalAlignment="Top" Margin="15,286,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
-        <TextBox x:Name="QuantityTextBox" Grid.Row="0" Margin="165,286,310,111" IsReadOnly="True"/>
+        <Label x:Name="DetailWindowMode" Content="Label" 
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+               FontSize="16" FontWeight="Bold" Foreground="White" Margin="5,0,5,10"/>
 
-        <Label Content="Dollar Price"  Grid.Column="0" VerticalAlignment="Top" Margin="15,334,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="37"/>
-        <TextBox x:Name="DollarPriceTextBox" Grid.Row="0" Margin="165,334,310,63" IsReadOnly="True"/>
+        <Label Content="AirConditioner Id" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="AirConditionerIdTextBox" Grid.Row="1" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
 
-        <Label Content="Supplier"  Grid.Column="0" VerticalAlignment="Top" Margin="15,383,645,0" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="12" Height="36"/>
-        <ComboBox x:Name="SupplierComboBox" Grid.Row="0" Margin="165,383,310,15" IsReadOnly="True"/>
-        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Height="70" Margin="565,79,0,0" VerticalAlignment="Top" Width="170" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="40" Click="SaveButton_Click"/>
-        <Button x:Name="QuitButton" Content="Quit" HorizontalAlignment="Left" Height="70" Margin="565,189,0,0" VerticalAlignment="Top" Width="170" Background="Yellow" Foreground="Blue" FontWeight="ExtraBold" FontSize="40" Click="QuitButton_Click"/>
-        <Label x:Name="DetailWindowMode" Content="Label" HorizontalAlignment="Left" Height="45" Margin="40,19,0,0" VerticalAlignment="Top" Width="435"/>
+        <Label Content="AirConditioner Name" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="AirConditionerNameTextBox" Grid.Row="2" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
 
+        <Label Content="Warranty" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="WarrantyTextBox" Grid.Row="3" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
 
+        <Label Content="Sound Pressure Level" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="SoundPressureLevelTextBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
 
+        <Label Content="Feature Function" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="FeatureFunctionTextBox" Grid.Row="5" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
 
+        <Label Content="Quantity" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="QuantityTextBox" Grid.Row="6" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
 
+        <Label Content="Dollar Price" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="DollarPriceTextBox" Grid.Row="7" Grid.Column="1" Style="{StaticResource DataTextBox}" IsReadOnly ="False"/>
+
+        <Label Content="Supplier" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabel}"/>
+        <ComboBox x:Name="SupplierComboBox" Grid.Row="8" Grid.Column="1" Style="{StaticResource DataComboBox}" IsReadOnly ="False" SelectionChanged="SupplierComboBox_SelectionChanged" />
+
+        <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="8" VerticalAlignment="Top" Margin="20,0,0,0">
+            <Button x:Name="SaveButton" Content="Save" Style="{StaticResource ActionButton}" Click="SaveButton_Click"/>
+            <Button x:Name="QuitButton" Content="Quit" Style="{StaticResource ActionButton}" Click="QuitButton_Click"/>
+        </StackPanel>
 
     </Grid>
 </Window>
